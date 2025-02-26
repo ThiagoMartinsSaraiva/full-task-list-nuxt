@@ -20,35 +20,18 @@ const greetingMessage = computed(() => {
 <template>
   <div class="background">
     <header>
-      <!-- <h2>Agenda do mês</h2>
-      <h2>Agenda da semana</h2>
-      <h2>Agenda do dia</h2> -->
-      <h2>{{ greetingMessage }}</h2> <p>{{ time }}</p>
+      <div class="greeting">
+        <h2>{{ greetingMessage }}</h2> <p>{{ time }}</p>
+      </div>
     </header>
     <main>
+      <div class="period-schedules">
+        <NuxtLink to="/day">Agenda do dia</NuxtLink>
+        <NuxtLink to="/week">Agenda da semana</NuxtLink>
+        <NuxtLink to="/month" >Agenda do mês</NuxtLink>
+      </div>
       <h2 class="programmation-title">Programação</h2>
-      <ul class="card-list">
-        <li>
-          <div class="card">
-            <span>Casamento</span> <span>18h30</span>
-          </div>
-        </li>
-        <li>
-          <div class="card">
-            <span>Meditação</span> <span>19h45</span>
-          </div>
-        </li>
-        <li>
-          <div class="card">
-            <span>Prova de certificação</span> <span>13h00</span>
-          </div>
-        </li>
-        <li>
-          <div class="card">
-            <span>Hora de dormir</span> <span>01h30</span>
-          </div>
-        </li>
-      </ul>
+      <NuxtPage />
     </main>
   </div>
 </template>
@@ -61,17 +44,43 @@ const greetingMessage = computed(() => {
   background-position: center;
   height: 100vh;
   width: 100vw;
+  padding: 10%;
 }
 
 header {
-  background-color: #d236;
   color: #fff;
-  text-shadow: 1px 1px 3px #333, -1px -1px 3px #333;
+  text-shadow: 1px 1px 3px #333;
+}
+
+.greeting {
+  margin-bottom: 16px;
+}
+
+.period-schedules {
+  display: flex;
+  gap: 16px;
+  cursor: pointer;
+  justify-content: center;
+  
+  a {
+    color: #ccc;
+    text-decoration: none;
+    text-shadow: 1px 1px 3px #000;
+    font-size: 22px;
+    transition: .3s;
+
+    &:hover, &.router-link-active {
+      color: #fff;
+    }
+  }
 }
 
 .programmation-title {
   text-align: center;
-  margin: 32px;
+  margin: 36px;
+  /* text-shadow: 1px 1px 3px #aaa7; */
+  color: #fff;
+  text-shadow: 1px 1px 3px #000;
 }
 
 .card-list {
@@ -93,10 +102,10 @@ header {
   justify-content: space-between;
   border-radius: 4px;
   transition: background .4s;
+  cursor: pointer;
 
   &:hover {
     background: #fff;
-    cursor: pointer;
   }
 }
 </style>

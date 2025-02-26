@@ -15,6 +15,5 @@
   -moz-osx-font-smoothing: grayscale;
   font-family: Quicksand;
   outline: none;
-  font-size: 100%;
 }
 </style>
