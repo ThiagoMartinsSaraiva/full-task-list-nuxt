@@ -7,9 +7,9 @@ const time = `${Intl.DateTimeFormat(Intl.DateTimeFormat().resolvedOptions().loca
 const greetingMessage = computed(() => {
   const morningInterval = [5, 12]
   const eveningInterval = [13, 18]
-  if (morningInterval[0] >= now.getHours() && morningInterval[1] <= now.getHours()) {
+  if (now.getHours() >= morningInterval[0] && now.getHours() <= morningInterval[1]) {
     return 'Bom dia'
-  } else if(eveningInterval[0] >= now.getHours() && eveningInterval[1] <= now.getHours()) {
+  } else if(now.getHours() >= eveningInterval[0] && now.getHours() <= eveningInterval[1]) {
     return 'Boa tarde'
   } else {
     return 'Boa noite'
