@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 const now = new Date()
-const time = `${new Intl.DateTimeFormat('pt-BR', {
+const time = `${Intl.DateTimeFormat(Intl.DateTimeFormat().resolvedOptions().locale, {
   dateStyle: 'long',
 }).format(now)}`
 
